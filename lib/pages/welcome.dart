@@ -35,8 +35,8 @@ class _WelcomeState extends State<Welcome> {
                       1,
                       context,
                       "İleri",
-                      "Ucuza uçak biletleri bul",
-                      "assets/images/plane.png",
+                      "Aradığın en uygun uçak bileti",
+                      "assets/images/boy.png",
                       pageController,
                     ),
                     // Diğer sayfalar eklenebilir
@@ -68,7 +68,8 @@ Widget _page(int index, BuildContext context, String buttonName, String title, S
         child: Text(
           title,
           style: const TextStyle(
-            color: Colors.black,
+
+            color: Colors.white,
             fontSize: 24,
             fontWeight: FontWeight.normal,
           ),
@@ -81,15 +82,33 @@ Widget _page(int index, BuildContext context, String buttonName, String title, S
             pageController.animateToPage(
               index,
               duration: const Duration(milliseconds: 500),
-              curve: Curves.decelerate,
+              curve: Curves.bounceIn,
             );
           } else {
             Navigator.of(context).pushNamedAndRemoveUntil("myHomePage", (route) => false);
           }
         },
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
-          color: Colors.blue, // Düğmenin rengini ayarlayın
+          padding:const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
+          decoration: BoxDecoration(
+            color:Colors.blue,
+            borderRadius: BorderRadius.circular(30.0),
+            boxShadow:const [
+              BoxShadow(
+              color: Colors.black26,
+              blurRadius: 10.0,
+              offset: Offset(0,4),
+            ),
+            ],
+            gradient: const LinearGradient(
+              colors: [Colors.blueAccent,Colors.lightBlueAccent],
+              begin: Alignment.topLeft,
+              end:Alignment.bottomRight,
+            )
+            
+          ),
+    
+          
           child: Text(
             buttonName,
             style: const TextStyle(
