@@ -105,16 +105,17 @@ Widget _page(int index, BuildContext context, String buttonName, String imagePat
                   fontWeight: FontWeight.normal,
                 ),
               ),
-              const SizedBox(width: 8), // Araya boşluk koymak için
+              const SizedBox(width: 8), 
               Container(
                 decoration: BoxDecoration(
-                  color: Colors.white, // Dairenin rengi
+                  color: Colors.white, 
                   shape: BoxShape.circle,
+                
                 ),
-                padding: const EdgeInsets.all(4), // Daire boyutu
+                padding: const EdgeInsets.all(4),
                 child: const Icon(
                   Icons.arrow_forward,
-                  color: Colors.blue, // Ok ikonunun rengi
+                  color: Colors.blue, 
                   size: 16,
                 ),
               ),
