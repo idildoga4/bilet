@@ -12,13 +12,15 @@ AppBar buildAppBar(){
                 height: 1.0,
               ),
             )),
-            title: Text("Giriş",
-            style: TextStyle(
-
-              color:AppColors.primaryText,
-              fontSize:16.sp,
-              fontWeight: FontWeight.normal,
-            ))
+            title: Center(
+              child: Text("Giriş",
+              style: TextStyle(
+                  
+                color:AppColors.primaryText,
+                fontSize:16.sp,
+                fontWeight: FontWeight.normal,
+              )),
+            )
           );
 }
 
