@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "294498468945",
+    "project_id": "bilet-735b5",
+    "storage_bucket": "bilet-735b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294498468945:android:36156af464461a096ea470",
+        "android_client_info": {
+          "package_name": "com.example.bilet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM2xVHp28a8YnKDWcXQ7lpsh3MR7XdS7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

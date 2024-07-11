@@ -1,5 +1,6 @@
 import 'package:bilet/colors.dart';
-import 'package:bilet/widgets/login_widget.dart';
+import 'package:bilet/widgets/common_widgets.dart';
+import 'package:bilet/widgets/signin_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -12,7 +13,6 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -20,7 +20,7 @@ class _SignInState extends State<SignIn> {
       child: SafeArea(
         child: Scaffold(
           backgroundColor: AppColors.primaryBackground,
-          appBar:buildAppBar(),
+          appBar: buildAppBar("Giriş Yap"),
           body: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -34,14 +34,16 @@ class _SignInState extends State<SignIn> {
                       children: [
                         reusableText("Email"),
                         SizedBox(height: 5.h),
-                        buildTextField("Mailinizi girin", "email"),
+                        buildTextField("Mailinizi girin", "email","user"),
                         reusableText("Şifre"),
                         SizedBox(height: 5.h),
-                        buildTextField("Şifrenizi girin", "password"),
+                        buildTextField("Şifrenizi girin", "password","lock"),
                         SizedBox(height: 20.h),
                         forgotPassword(),
-                        buildLogInAndRegButton("Giriş Yap", "login"),
-                        buildLogInAndRegButton("Kayıt ol", "register"),
+                        buildLogInAndRegButton("Giriş Yap", "login", (){}),
+                        buildLogInAndRegButton("Kayıt ol", "register", (){
+                          Navigator.of(context).pushNamed("register");
+                        }),
                       ],
                     ),
                   )

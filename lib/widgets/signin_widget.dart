@@ -2,28 +2,6 @@ import 'package:bilet/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-AppBar buildAppBar(){
-  return AppBar(
-
-            bottom: PreferredSize(preferredSize: const Size.fromHeight(1.0),
-            child:Center(
-              child: Container(
-                color: AppColors.primaryBackground,
-                height: 1.0,
-              ),
-            )),
-            title: Center(
-              child: Text("Giriş",
-              style: TextStyle(
-                  
-                color:AppColors.primaryText,
-                fontSize:16.sp,
-                fontWeight: FontWeight.normal,
-              )),
-            )
-          );
-}
-
 Widget reusableText(String text) {
   return Container(
     margin: EdgeInsets.only(bottom: 5.h),
@@ -38,7 +16,7 @@ Widget reusableText(String text) {
   );
 }
 
-Widget buildTextField(String hintText, String textType) {
+Widget buildTextField(String hintText, String textType, String s) {
   return Container(
     width: 325.w,
     height: 50.w,
@@ -85,6 +63,18 @@ Widget buildTextField(String hintText, String textType) {
     ),
   );
 }
+Widget _reusableIcons(String iconName){
+  return GestureDetector(
+          onTap:(){
+
+          },
+          child: SizedBox(
+            width: 40.w,
+            height: 40.w,
+            child: Image.asset("assets/icons/$iconName.png"),
+          )
+        );
+}
 
 Widget forgotPassword() {
   return Container(
@@ -107,9 +97,9 @@ Widget forgotPassword() {
   );
 }
 
-Widget buildLogInAndRegButton(String buttonName, String buttonType) {
+Widget buildLogInAndRegButton(String buttonName, String buttonType, VoidCallback onTap) {
   return GestureDetector(
-    onTap: () {},
+    onTap: onTap,
     child: Container(
       width: 325.w,
       height: 50.h,

@@ -1,6 +1,6 @@
-import 'package:bilet/bloc/login_event.dart';
+import 'package:bilet/bloc/signin_event.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:bilet/bloc/login_state.dart';
+import 'package:bilet/bloc/signin_state.dart';
 
 class SignInBloc extends Bloc<SignInEvent, SignInState> {
 

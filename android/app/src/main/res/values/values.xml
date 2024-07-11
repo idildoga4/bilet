@@ -1,0 +1,7 @@
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">294498468945</string>
+    <string name="google_api_key" translatable="false">AIzaSyCM2xVHp28a8YnKDWcXQ7lpsh3MR7XdS7s</string>
+    <string name="google_app_id" translatable="false">1:294498468945:android:36156af464461a096ea470</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCM2xVHp28a8YnKDWcXQ7lpsh3MR7XdS7s</string>
+    <string name="project_id" translatable="false">bilet-735b5</string>
+</resources>
