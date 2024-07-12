@@ -107,7 +107,7 @@ Widget _page(int index, BuildContext context, String buttonName, String imagePat
               ),
               const SizedBox(width: 8), 
               Container(
-                decoration: BoxDecoration(
+                decoration:const BoxDecoration(
                   color: Colors.white, 
                   shape: BoxShape.circle,
                 

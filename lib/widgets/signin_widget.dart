@@ -30,6 +30,7 @@ void Function(String value)? func) {
     child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
       child: TextField(
+        onChanged:(value)=>func!(value),
         keyboardType: TextInputType.multiline,
         decoration: InputDecoration(
           hintText: hintText,
@@ -99,9 +100,9 @@ Widget forgotPassword() {
   );
 }
 
-Widget buildLogInAndRegButton(String buttonName, String buttonType, VoidCallback onTap) {
+Widget buildLogInAndRegButton(String buttonName, String buttonType, void Function()? func) {
   return GestureDetector(
-    onTap: onTap,
+    onTap: ()=>func,
     child: Container(
       width: 325.w,
       height: 50.h,
@@ -116,7 +117,7 @@ Widget buildLogInAndRegButton(String buttonName, String buttonType, VoidCallback
           BoxShadow(
             spreadRadius: 1,
             blurRadius: 2,
-            offset: Offset(0, 1),
+            offset: const Offset(0, 1),
             color: Colors.grey.withOpacity(0.1),
           ),
         ],

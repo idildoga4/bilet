@@ -47,13 +47,11 @@ class _SignInState extends State<SignIn> {
                             reusableText("Şifre"),
                             SizedBox(height: 5.h),
                             buildTextField("Şifrenizi girin", "password","lock", (value){
-                              context.read<SignInBloc>().add(PasswordChanged(value));
-            
-                            }),
+                              context.read<SignInBloc>().add(PasswordChanged(value));}),
                             SizedBox(height: 20.h),
                             forgotPassword(),
                             buildLogInAndRegButton("Giriş Yap", "login", (){
-                              SignInController(context:context).handleSignIn("email");
+                              SignInController(context:context).handleSignIn("password");
                             }),
                             buildLogInAndRegButton("Kayıt ol", "register", (){
                               Navigator.of(context).pushNamed("register");
