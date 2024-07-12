@@ -1,56 +1,57 @@
 import 'package:bilet/bloc/signin_bloc.dart';
+import 'package:bilet/widgets/flutter_toast.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-abstract class SignController {
+class SignInController{
   final BuildContext context;
-  SignController({required this.context});
+  const SignInController({required this.context});
 
-  Future<void> handledSignedIn(String type) async {
-    String emailAddress = '';
-    String password = '';
-
-    try {
-      if (type == "email") {
+  void handleSignIn(String type) async {
+    try{
+      if(type=="email"){
         final state = context.read<SignInBloc>().state;
-        emailAddress = state.email;
-        password = state.password;
-
-        if (emailAddress.isEmpty) {
-          // Handle empty email address
-          throw Exception("Email address is empty");
+        String emailAddress = state.email;
+        String password = state.password;
+        if(emailAddress.isEmpty){
+          toastInfo(msg: "You have no email address");
         }
-        if (password.isEmpty) {
-          // Handle empty password
-          throw Exception("Password is empty");
+        if(password.isEmpty){
+          toastInfo(msg: "You need to password");
         }
-      }
-    } catch (e) {
-      // Handle the error, e.g., by logging or showing a message to the user
-    }
+        try{
+          final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddress, password: password);
+          if(credential.user==null){}
+          if(!credential.user!.emailVerified){}
+          var user = credential.user;
+          if(user!=null){
 
-    try {
-      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailAddress,
-        password: password,
-      );
-      if(credential.user==null){
+          }else{
+
+          }
+
+
+
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'user-not-found') {
+            print('No user found for that email.');
+            toastInfo(msg: "No user found for that email.");
+          } else if (e.code == 'wrong-password') {
+            print('Wrong password provided for that user.');
+            toastInfo(msg: "Wrong password provided for that user.");
+          }else if(e.code=='invalid-email'){
+            print('Your email format is wrong');
+            toastInfo(msg: "Your email format is wrong");
+          }
+        }
+
+
 
       }
-      if(credential.user!.emailVerified){
-
-      }
-      var user=credential.user;
-      if(user!=null)
-      {
-
-      }else{
-        
-      }
-      // Handle successful sign-in
-    } catch (e) {
-      // Handle sign-in error, e.g., invalid email or password
+    }catch(e){
+      print(e);
     }
   }
+
 }

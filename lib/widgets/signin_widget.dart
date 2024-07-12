@@ -16,7 +16,8 @@ Widget reusableText(String text) {
   );
 }
 
-Widget buildTextField(String hintText, String textType, String s) {
+Widget buildTextField(String hintText, String textType, String s,
+void Function(String value)? func) {
   return Container(
     width: 325.w,
     height: 50.w,
@@ -72,7 +73,8 @@ Widget _reusableIcons(String iconName){
             width: 40.w,
             height: 40.w,
             child: Image.asset("assets/icons/$iconName.png"),
-          )
+          ),
+
         );
 }
 

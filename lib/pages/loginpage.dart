@@ -36,16 +36,24 @@ class _RegisterState extends State<register>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             reusableText("Kullanıcı adı"),
-                            buildTextField("Kullanıcı adınızı girin", "name","user"),
+                            buildTextField("Kullanıcı adınızı girin", "name","user" ,(value) {
+                              
+                            },),
                             SizedBox(height: 5.h),
                             reusableText("Email"),
-                            buildTextField("Mailinizi girin", "email","user"),
+                            buildTextField("Mailinizi girin", "email","user", (value) {
+                              
+                            },),
                             SizedBox(height: 5.h),
                             reusableText("Parola"),
-                            buildTextField("Parola Oluşturun", "password","lock"),
+                            buildTextField("Parola Oluşturun", "password","lock", (value) {
+                              
+                            },),
                             SizedBox(height: 5.h),
                             reusableText("Parolanızı doğrulayın"),
-                            buildTextField("Parolanızı tekrar girin", "password","lock"),
+                            buildTextField("Parolanızı tekrar girin", "password","lock", (value) {
+                              
+                            },),
                             
                         
                             reusableText("Kayıt olmak için bilgilerinizi giriniz"),

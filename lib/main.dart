@@ -1,8 +1,10 @@
+import 'package:bilet/bloc/signin_bloc.dart';
 import 'package:bilet/bloc/welcome_bloc.dart';
 import 'package:bilet/colors.dart';
 import 'package:bilet/pages/loginpage.dart';
 import 'package:bilet/pages/signinpage.dart';
 import 'package:bilet/pages/welcome.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,6 +12,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 
 void main() {
+  Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -25,7 +28,12 @@ class MyApp extends StatelessWidget {
         BlocProvider<WelcomeBloc>(
           create: (context) => WelcomeBloc(),
         ),
+        BlocProvider<SignInBloc>(
+        create: (context)=> SignInBloc(),
+      ),
       ],
+      
+      
       child: MaterialApp(
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
