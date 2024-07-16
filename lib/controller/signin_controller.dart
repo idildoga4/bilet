@@ -15,10 +15,10 @@ class SignInController{
         String emailAddress = state.email;
         String password = state.password;
         if(emailAddress.isEmpty){
-          toastInfo(msg: "You have no email address");
+          toastInfo(msg: "Email adresiniz bulunamadı");
         }
         if(password.isEmpty){
-          toastInfo(msg: "You need to password");
+          toastInfo(msg: "Şifreyi giriniz");
         }
         try{
           final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(email: emailAddress, password: password);
@@ -35,14 +35,14 @@ class SignInController{
 
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
-            print('No user found for that email.');
-            toastInfo(msg: "No user found for that email.");
+            print('Kullanıcı bulunamadı.');
+            toastInfo(msg: "Kullanıcı bulunamadı.");
           } else if (e.code == 'wrong-password') {
-            print('Wrong password provided for that user.');
-            toastInfo(msg: "Wrong password provided for that user.");
+            print('Yanlış şifre');
+            toastInfo(msg: "Yanlış şifre");
           }else if(e.code=='invalid-email'){
-            print('Your email format is wrong');
-            toastInfo(msg: "Your email format is wrong");
+            print('Mail formatını gözden geçirin.');
+            toastInfo(msg: "Mail formatını gözden geçirin.");
           }
         }
 

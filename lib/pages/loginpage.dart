@@ -1,9 +1,12 @@
+import 'package:bilet/bloc/register_bloc.dart';
+import 'package:bilet/bloc/register_state.dart';
 import 'package:bilet/colors.dart';
 import 'package:bilet/widgets/common_widgets.dart';
 import 'package:bilet/widgets/signin_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class register extends StatefulWidget{
@@ -16,8 +19,9 @@ class _RegisterState extends State<register>
 {
   @override  
   Widget build(BuildContext context){
-    return Center(
-      child: Container(
+    return BlocBuilder<RegisterBloc,RegisterState>(builder:(context,state){
+
+      return Container(
         color:AppColors.primaryBackground,
         child:SafeArea(
           child:Scaffold(
@@ -56,8 +60,11 @@ class _RegisterState extends State<register>
                             },),
                             
                         
-                            reusableText("Kayıt olmak için bilgilerinizi giriniz"),
-                            buildLogInAndRegButton("Kayıt ol", "register", (){
+                            Container(
+                              margin:EdgeInsets.only(left:25.w),
+                              child:reusableText("Kayıt olmak için bilgilerinizi giriniz"),
+                            ),
+                            buildLogInAndRegButton("Kayıt ol", "login", (){
                               Navigator.of(context).pushNamed("register");
                             }),
                           ],
@@ -71,7 +78,8 @@ class _RegisterState extends State<register>
       
           )
         )
-      ),
+      );
+    }
     );
   }
 }

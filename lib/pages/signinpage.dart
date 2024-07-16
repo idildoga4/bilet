@@ -2,6 +2,7 @@ import 'package:bilet/bloc/signin_bloc.dart';
 import 'package:bilet/bloc/signin_event.dart';
 import 'package:bilet/bloc/signin_state.dart';
 import 'package:bilet/colors.dart';
+import 'package:bilet/controller/register_controller.dart';
 import 'package:bilet/controller/signin_controller.dart';
 import 'package:bilet/widgets/common_widgets.dart';
 import 'package:bilet/widgets/signin_widget.dart';
@@ -54,7 +55,8 @@ class _SignInState extends State<SignIn> {
                               SignInController(context:context).handleSignIn("password");
                             }),
                             buildLogInAndRegButton("Kayıt ol", "register", (){
-                              Navigator.of(context).pushNamed("register");
+                              //Navigator.of(context).pushNamed("register");
+                              RegisterController(context:context).handleEmailRegister();
                             }),
                           ],
                         ),

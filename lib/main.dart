@@ -1,3 +1,4 @@
+import 'package:bilet/bloc/register_bloc.dart';
 import 'package:bilet/bloc/signin_bloc.dart';
 import 'package:bilet/bloc/welcome_bloc.dart';
 import 'package:bilet/colors.dart';
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<SignInBloc>(
         create: (context)=> SignInBloc(),
       ),
+      BlocProvider(create: (context) => RegisterBloc())
       ],
       
       
