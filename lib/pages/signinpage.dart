@@ -21,7 +21,7 @@ class SignIn extends StatefulWidget {
 class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SignInBloc,SignInState>(
+    return BlocBuilder<SignInBloc, SignInState>(
       builder: (context, state) {
         return Container(
           color: AppColors.primaryBackground,
@@ -42,21 +42,21 @@ class _SignInState extends State<SignIn> {
                           children: [
                             reusableText("Email"),
                             SizedBox(height: 5.h),
-                            buildTextField("Mailinizi girin", "email","user", (value){
+                            buildTextField("Mailinizi girin", "email", "user", (value) {
                               context.read<SignInBloc>().add(EmailChanged(value));
                             }),
                             reusableText("Şifre"),
                             SizedBox(height: 5.h),
-                            buildTextField("Şifrenizi girin", "password","lock", (value){
-                              context.read<SignInBloc>().add(PasswordChanged(value));}),
+                            buildTextField("Şifrenizi girin", "password", "lock", (value) {
+                              context.read<SignInBloc>().add(PasswordChanged(value));
+                            }),
                             SizedBox(height: 20.h),
                             forgotPassword(),
-                            buildLogInAndRegButton("Giriş Yap", "login", (){
-                              SignInController(context:context).handleSignIn("password");
+                            buildLogInAndRegButton("Giriş Yap", "login", () {
+                              SignInController(context: context).handleSignIn("password");
                             }),
-                            buildLogInAndRegButton("Kayıt ol", "register", (){
-                              //Navigator.of(context).pushNamed("register");
-                              RegisterController(context:context).handleEmailRegister();
+                            buildLogInAndRegButton("Kayıt ol", "register", () {
+                              Navigator.of(context).pushNamed("register");
                             }),
                           ],
                         ),
@@ -68,7 +68,7 @@ class _SignInState extends State<SignIn> {
             ),
           ),
         );
-      }
+      },
     );
   }
 }
