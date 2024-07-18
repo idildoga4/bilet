@@ -1,20 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: SearchFlight(),
-    );
-  }
-}
 
 class SearchFlight extends StatefulWidget {
   @override
@@ -31,6 +16,10 @@ class _SearchState extends State<SearchFlight> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
+        title:const Text('BILET', style: TextStyle(color:Colors.white)),
+        centerTitle: true,
+        bottom:PreferredSize(preferredSize:const Size.fromHeight(30.0),
+        child:Container())
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),

@@ -52,6 +52,7 @@ class _GirisState extends State<Giris> {
                             forgotPassword(),
                             buildLogInAndRegButton("Giriş Yap", "login", () {
                               SignInController(context: context).handleSignIn("email");
+                              Navigator.of(context).pushNamed("flight");
                             }),
                            buildLogInAndRegButton("Kayıt ol", "register", () {
                               Navigator.of(context).pushNamed("register");}

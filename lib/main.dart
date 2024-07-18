@@ -4,6 +4,7 @@ import 'package:bilet/bloc/register_bloc.dart';
 import 'package:bilet/colors.dart';
 import 'package:bilet/pages/giris.dart';
 import 'package:bilet/pages/kayit.dart';
+import 'package:bilet/pages/search_flight.dart';
 import 'package:bilet/pages/welcome.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -50,6 +51,7 @@ class MyApp extends StatelessWidget {
           'homepage':(context)=> const Welcome(),
           'login': (context) => const Giris(),
           'register': (context) => const Kayit(),
+          'flight':(context)=>  SearchFlight(),
         },
         builder: (context, widget) {
           ScreenUtil.init(
