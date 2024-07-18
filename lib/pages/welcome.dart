@@ -73,7 +73,7 @@ Widget _page(int index, BuildContext context, String buttonName, String imagePat
               curve: Curves.bounceIn,
             );
           } else {
-            Navigator.of(context).pushNamedAndRemoveUntil("login", (route) => false);
+            Navigator.of(context).pushNamedAndRemoveUntil("giris", (route) => false);
           }
         },
         child: Container(

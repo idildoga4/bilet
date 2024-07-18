@@ -2,8 +2,8 @@ import 'package:bilet/bloc/welcome_bloc.dart';
 import 'package:bilet/bloc/signin_bloc.dart';
 import 'package:bilet/bloc/register_bloc.dart';
 import 'package:bilet/colors.dart';
-import 'package:bilet/pages/loginpage.dart';
-import 'package:bilet/pages/signinpage.dart';
+import 'package:bilet/pages/giris.dart';
+import 'package:bilet/pages/kayit.dart';
 import 'package:bilet/pages/welcome.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
             iconTheme: IconThemeData(color: AppColors.primaryText),
@@ -47,11 +48,11 @@ class MyApp extends StatelessWidget {
         home: const Welcome(),
         routes: {
           'homepage': (context) => const Welcome(),
-          'login': (context) => const SignIn(),
-          'register': (context) => const register(),
+          'giris': (context) => const Giris(),
+          'kayit': (context) => const Kayit(),
         },
         builder: (context, widget) {
-          ScreenUtil.init(
+          ScreenUtil.init( //
             context,
             designSize: const Size(375, 812),
             minTextAdapt: true,

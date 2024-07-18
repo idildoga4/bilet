@@ -2,22 +2,22 @@ abstract class RegisterEvent{
   const RegisterEvent();
 }
 
-class UserNameEvent extends RegisterEvent{
+class UserNameChanged extends RegisterEvent{
   final String  username;
-  const UserNameEvent(this.username);
+  const UserNameChanged(this.username);
 }
 
-class EmailEvent extends RegisterEvent{
+class EmailChanged extends RegisterEvent{
   final String email;
-  const EmailEvent(this.email);
+  const EmailChanged(this.email);
 }
 
-class PasswordEvent extends RegisterEvent{
+class PasswordChanged extends RegisterEvent{
   final String password;
-  const PasswordEvent(this.password);
+  const PasswordChanged(this.password);
 }
 
-class rePasswordEvent extends RegisterEvent{
+class rePasswordChanged extends RegisterEvent{
   final String rePassword;
-  const rePasswordEvent(this.rePassword);
+  const rePasswordChanged(this.rePassword);
 }

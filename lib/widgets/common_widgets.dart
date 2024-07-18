@@ -4,7 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 AppBar buildAppBar(String type){
   return AppBar(
-
+            
             bottom: PreferredSize(preferredSize: const Size.fromHeight(1.0),
             child:Center(
               child: Container(

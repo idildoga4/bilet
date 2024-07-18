@@ -8,12 +8,12 @@ class RegisterController{
   final BuildContext context;
   const RegisterController({required this.context});
 
-  Future<void> handleEmailRegister() async {
+  handleEmailRegister() async {
     final state=context.read<RegisterBloc>().state;
     String username=state.username;
     String email=state.email;
     String password=state.password;
-    String rePassword=state.rePassword;
+    String rePassword=state.repassword;
 
     if(username.isEmpty){
       toastInfo(msg: "Kullanıcı adı boş bırakılamaz");
@@ -31,11 +31,12 @@ class RegisterController{
       toastInfo(msg: "Şifre oluşturun");
       return;
   }
-    if(rePassword.isEmpty)
+    if(password!=rePassword)
     {
-      toastInfo(msg: "Şifrenizi tekrar girin");
+      toastInfo(msg: "Şifreler uyuşmuyor");
       return;
   }
+  FocusManager.instance.primaryFocus?.unfocus(); //
   try{
     final credential=await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 

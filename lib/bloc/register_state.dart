@@ -1,16 +1,28 @@
-class RegisterState{
+
+class RegisterState {
+  const RegisterState({
+    this.username = "",
+    this.email = "",
+    this.password = "",
+    this.repassword = "",
+  });
+
   final String username;
   final String email;
   final String password;
-  final String rePassword;
-  const RegisterState({this.username="",this.email="",this.password="",this.rePassword=""});
+  final String repassword;
 
   RegisterState copyWith({
-    String? username, String? email,String? password,String? rePassword
-  }){
-    return RegisterState(username:username??this.username,
-     email:email??this.email, //veri varsa kullan, yoksa öncekini kullan
-      password:password??this.password, 
-      rePassword:rePassword??this.rePassword);
+    String? username,
+    String? email,
+    String? password,
+    String? repassword,
+  }) {
+    return RegisterState(
+      username: username ?? this.username,
+      email: email ?? this.email,
+      password: password ?? this.password,
+      repassword: repassword ?? this.repassword,
+    );
   }
 }

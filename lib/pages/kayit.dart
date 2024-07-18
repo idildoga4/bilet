@@ -1,6 +1,8 @@
 import 'package:bilet/bloc/register_bloc.dart';
+import 'package:bilet/bloc/register_event.dart';
 import 'package:bilet/bloc/register_state.dart';
 import 'package:bilet/colors.dart';
+import 'package:bilet/controller/register_controller.dart';
 import 'package:bilet/widgets/common_widgets.dart';
 import 'package:bilet/widgets/signin_widget.dart';
 import 'package:flutter/cupertino.dart';
@@ -9,13 +11,13 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class register extends StatefulWidget{
-  const register({Key? key}) : super(key:key);
+class Kayit extends StatefulWidget{
+  const Kayit({Key? key}) : super(key:key);
   @override   
-  State<register> createState()=> _RegisterState();
+  State<Kayit> createState()=> _KayitState();
 }
 
-class _RegisterState extends State<register>
+class _KayitState extends State<Kayit>
 {
   @override  
   Widget build(BuildContext context){
@@ -41,22 +43,22 @@ class _RegisterState extends State<register>
                           children: [
                             reusableText("Kullanıcı adı"),
                             buildTextField("Kullanıcı adınızı girin", "name","user" ,(value) {
-                              
+                              context.read<RegisterBloc>().add(UserNameChanged(value));
                             },),
                             SizedBox(height: 5.h),
                             reusableText("Email"),
                             buildTextField("Mailinizi girin", "email","user", (value) {
-                              
+                              context.read<RegisterBloc>().add(EmailChanged(value));
                             },),
                             SizedBox(height: 5.h),
                             reusableText("Parola"),
                             buildTextField("Parola Oluşturun", "password","lock", (value) {
-                              
+                              context.read<RegisterBloc>().add(PasswordChanged(value));
                             },),
                             SizedBox(height: 5.h),
                             reusableText("Parolanızı doğrulayın"),
                             buildTextField("Parolanızı tekrar girin", "password","lock", (value) {
-                              
+                              context.read<RegisterBloc>().add(rePasswordChanged(value));
                             },),
                             
                         
@@ -64,8 +66,8 @@ class _RegisterState extends State<register>
                               margin:EdgeInsets.only(left:25.w),
                               child:reusableText("Kayıt olmak için bilgilerinizi giriniz"),
                             ),
-                            buildLogInAndRegButton("Kayıt ol", "login", (){
-                              Navigator.of(context).pushNamed("register");
+                            buildLogInAndRegButton("Kayıt ol", "kayit", (){
+                              RegisterController(context: context).handleEmailRegister();
                             }),
                           ],
                         ),

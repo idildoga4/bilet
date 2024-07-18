@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class Giris extends StatefulWidget {
+  const Giris({super.key});
 
   @override
-  State<SignIn> createState() => _SignInState();
+  State<Giris> createState() => _GirisState();
 }
 
-class _SignInState extends State<SignIn> {
+class _GirisState extends State<Giris> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SignInBloc, SignInState>(
@@ -52,11 +52,12 @@ class _SignInState extends State<SignIn> {
                             }),
                             SizedBox(height: 20.h),
                             forgotPassword(),
-                            buildLogInAndRegButton("Giriş Yap", "login", () {
-                              SignInController(context: context).handleSignIn("password");
+                            buildLogInAndRegButton("Giriş Yap", "giris", () {
+                              SignInController(context: context).handleSignIn("email");
+                            
                             }),
-                            buildLogInAndRegButton("Kayıt ol", "register", () {
-                              Navigator.of(context).pushNamed("register");
+                            buildLogInAndRegButton("Kayıt ol", "kayit", () {
+                              Navigator.of(context).pushNamed("kayit");
                             }),
                           ],
                         ),
