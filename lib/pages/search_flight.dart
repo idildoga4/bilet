@@ -8,7 +8,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Enuygun Clone',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -31,7 +30,6 @@ class _SearchState extends State<SearchFlight> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Enuygun Clone'),
         backgroundColor: Colors.blue,
       ),
       body: Padding(

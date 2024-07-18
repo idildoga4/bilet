@@ -11,8 +11,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
-  Firebase.initializeApp();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -34,10 +35,9 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: AppColors.primaryText),
+            iconTheme:IconThemeData(color:AppColors.primaryText) ,
             elevation: 0,
             backgroundColor: Colors.white,
           ),
@@ -47,12 +47,12 @@ class MyApp extends StatelessWidget {
         ),
         home: const Welcome(),
         routes: {
-          'homepage': (context) => const Welcome(),
-          'giris': (context) => const Giris(),
-          'kayit': (context) => const Kayit(),
+          'homepage':(context)=> const Welcome(),
+          'login': (context) => const Giris(),
+          'register': (context) => const Kayit(),
         },
         builder: (context, widget) {
-          ScreenUtil.init( //
+          ScreenUtil.init(
             context,
             designSize: const Size(375, 812),
             minTextAdapt: true,

@@ -2,11 +2,9 @@ import 'package:bilet/bloc/signin_bloc.dart';
 import 'package:bilet/bloc/signin_event.dart';
 import 'package:bilet/bloc/signin_state.dart';
 import 'package:bilet/colors.dart';
-import 'package:bilet/controller/register_controller.dart';
 import 'package:bilet/controller/signin_controller.dart';
 import 'package:bilet/widgets/common_widgets.dart';
 import 'package:bilet/widgets/signin_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -52,16 +50,15 @@ class _GirisState extends State<Giris> {
                             }),
                             SizedBox(height: 20.h),
                             forgotPassword(),
-                            buildLogInAndRegButton("Giriş Yap", "giris", () {
+                            buildLogInAndRegButton("Giriş Yap", "login", () {
                               SignInController(context: context).handleSignIn("email");
-                            
                             }),
-                            buildLogInAndRegButton("Kayıt ol", "kayit", () {
-                              Navigator.of(context).pushNamed("kayit");
-                            }),
+                           buildLogInAndRegButton("Kayıt ol", "register", () {
+                              Navigator.of(context).pushNamed("register");}
+                           )
                           ],
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
