@@ -23,9 +23,9 @@ void Function(String value)? func) {
     height: 50.w,
     margin: EdgeInsets.only(bottom: 20.h),
     decoration: BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.all(Radius.circular(15.w)),
-      border: Border.all(color: AppColors.primaryFourElementText),
+      color: Color.fromARGB(49, 158, 158, 158),
+      borderRadius: BorderRadius.all(Radius.circular(30)),
+      border: Border.all(color: Colors.grey),
     ),
     child: Padding(
       padding: EdgeInsets.symmetric(horizontal: 5.w),
@@ -104,11 +104,11 @@ Widget buildLogInAndRegButton(String buttonName, String buttonType, void Functio
   return GestureDetector(
     onTap:func,
     child: Container(
-      width: 325.w,
-      height: 50.h,
+      width: 356.w,
+      height: 58.h,
       margin: EdgeInsets.only(left: 20.w, right: 25.w, top: buttonType == "login" ? 40.h : 20.h),
       decoration: BoxDecoration(
-        color: buttonType == "login" ? AppColors.primaryElement : AppColors.primaryBackground,
+        color: buttonType == "login" ? Color(0xFF003366) : AppColors.primaryBackground,
         borderRadius: BorderRadius.circular(15.w),
         border: Border.all(
           color: buttonType == "login" ? Colors.transparent : AppColors.primaryFourElementText,
