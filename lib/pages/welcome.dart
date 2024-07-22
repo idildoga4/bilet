@@ -20,7 +20,7 @@ class _WelcomeState extends State<Welcome> {
       body: BlocBuilder<WelcomeBloc, WelcomeState>(
         builder: (context, state) {
           return Container(
-            color: Color.fromARGB(255, 231, 241, 244),
+            color: const Color.fromARGB(255, 231, 241, 244),
             width: double.infinity,
             child: Stack(
               alignment: Alignment.topCenter,

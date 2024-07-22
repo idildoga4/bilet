@@ -23,8 +23,8 @@ void Function(String value)? func) {
     height: 50.w,
     margin: EdgeInsets.only(bottom: 20.h),
     decoration: BoxDecoration(
-      color: Color.fromARGB(49, 158, 158, 158),
-      borderRadius: BorderRadius.all(Radius.circular(30)),
+      color:const Color.fromARGB(49, 158, 158, 158),
+      borderRadius: const BorderRadius.all(Radius.circular(30)),
       border: Border.all(color: Colors.grey),
     ),
     child: Padding(
@@ -67,13 +67,11 @@ void Function(String value)? func) {
 }
 Widget _reusableIcons(String iconName){
   return GestureDetector(
-          onTap:(){
-
-          },
+          
           child: SizedBox(
             width: 40.w,
             height: 40.w,
-            child: Image.asset("assets/icons/$iconName.png"),
+            child: Image.asset("assets/images/$iconName.png"),
           ),
 
         );

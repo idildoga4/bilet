@@ -1,6 +1,7 @@
-import 'dart:ui';
+
+import 'package:bilet/flight_track.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class BackgroundWaveClipper extends CustomClipper<Path> {
   @override
@@ -36,6 +37,16 @@ class _SearchState extends State<SearchFlight> {
   final TextEditingController _fromController = TextEditingController();
   final TextEditingController _toController = TextEditingController();
   DateTime? _selectedDate;
+  List<Flight> _flights = [];
+
+  void _searchFlights() async {
+    final from = _fromController.text;
+    final to = _toController.text;
+    final flights = await fetchFlights(from, to);
+    setState(() {
+      _flights = flights..sort((a, b) => a.price.compareTo(b.price));
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,31 +67,28 @@ class _SearchState extends State<SearchFlight> {
               ),
             ),
             Padding(
-              padding:  EdgeInsets.all(16.0),
+              padding: const EdgeInsets.all(16.0),
               child: Column(
                 children: [
                   TextField(
                     controller: _fromController,
                     decoration: InputDecoration(
-                      border:OutlineInputBorder(
-                        
-                        borderRadius:BorderRadius.circular(20.0)
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
                       labelText: 'Nereden?',
-                      prefixIcon: Icon(Icons.flight_takeoff),
-                      
+                      prefixIcon: const Icon(Icons.flight_takeoff),
                     ),
                   ),
                   const SizedBox(height: 10),
                   TextField(
                     controller: _toController,
                     decoration: InputDecoration(
-                      labelText: 'Nereye?',
-                      prefixIcon: Icon(Icons.flight_land),
-                      border:OutlineInputBorder(
-                        
-                        borderRadius:BorderRadius.circular(20.0)
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(20.0),
                       ),
+                      labelText: 'Nereye?',
+                      prefixIcon: const Icon(Icons.flight_land),
                     ),
                   ),
                   const SizedBox(height: 10),
@@ -96,13 +104,24 @@ class _SearchState extends State<SearchFlight> {
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(
-                    onPressed: () {
-                      // Uçuş arama işlemi _searchFlights()
-                    },
+                    onPressed: _searchFlights,
                     child: Text('Uçuşları ara'),
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
                     ),
+                  ),
+                  const SizedBox(height: 20),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    physics:const NeverScrollableScrollPhysics(),
+                    itemCount: _flights.length,
+                    itemBuilder: (context, index) {
+                      final flight = _flights[index];
+                      return ListTile(
+                        title: Text(flight.airline),
+                        subtitle: Text('\$${flight.price}'),
+                      );
+                    },
                   ),
                 ],
               ),
