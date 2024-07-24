@@ -5,14 +5,22 @@ import 'package:bilet/colors.dart';
 import 'package:bilet/pages/giris.dart';
 import 'package:bilet/pages/kayit.dart';
 import 'package:bilet/pages/search_flight.dart';
-import 'package:bilet/pages/welcome.dart'; 
+import 'package:bilet/pages/welcome.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 void main() async {
+  await dotenv.load(fileName: ".env");
   WidgetsFlutterBinding.ensureInitialized();
+   try {
+    await dotenv.load(fileName: ".env");
+    print("Dotenv loaded successfully");
+  } catch (e) {
+    print("Failed to load .env file: $e");
+  }
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
@@ -37,7 +45,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         theme: ThemeData(
           appBarTheme: const AppBarTheme(
-            iconTheme:IconThemeData(color:AppColors.primaryText) ,
+            iconTheme: IconThemeData(color: AppColors.primaryText),
             elevation: 0,
             backgroundColor: Colors.white,
           ),
@@ -47,10 +55,10 @@ class MyApp extends StatelessWidget {
         ),
         home: const Welcome(),
         routes: {
-          'homepage':(context)=> const Welcome(),
+          'homepage': (context) => const Welcome(),
           'login': (context) => const Giris(),
           'register': (context) => const Kayit(),
-          'flight':(context)=>  SearchFlight(),
+          'flight': (context) => SearchFlight(),
         },
         builder: (context, widget) {
           ScreenUtil.init(
